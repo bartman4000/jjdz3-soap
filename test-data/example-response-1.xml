@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:ns2="http://service.infoshareacademy.com/">
+    <soapenv:Body>
+        <ns2:toUpperCaseResponse>
+            <return>ALA MA KOTA.</return>
+        </ns2:toUpperCaseResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
