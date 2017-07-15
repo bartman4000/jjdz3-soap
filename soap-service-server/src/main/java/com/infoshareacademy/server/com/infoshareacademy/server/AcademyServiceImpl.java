@@ -1,12 +1,10 @@
 package com.infoshareacademy.server.com.infoshareacademy.server;
 
-import com.infoshareacademy.service.AcademyService;
-import com.infoshareacademy.service.GradesListWrapper;
-import com.infoshareacademy.service.GradesMapWrapper;
-import com.infoshareacademy.service.Student;
-import com.infoshareacademy.service.StudentsListWrapper;
-import java.util.Arrays;
+import com.infoshareacademy.service.*;
+
 import javax.jws.WebService;
+import java.util.Arrays;
+import java.util.HashMap;
 
 @WebService(endpointInterface = "com.infoshareacademy.service.AcademyService")
 public class AcademyServiceImpl implements AcademyService {
@@ -42,8 +40,28 @@ public class AcademyServiceImpl implements AcademyService {
         return s;
     }
 
+    private Double Averages(GradesListWrapper w)
+    {
+        Double sum = w.getGrades().stream().mapToDouble(Integer::doubleValue).sum();
+
+        return sum / w.getGrades().size();
+    }
+
     @Override
     public GradesMapWrapper getAverageGrades(StudentsListWrapper students) {
-        return null;
+
+        GradesMapWrapper avgs = new GradesMapWrapper();
+
+        HashMap<String,Double> hashMap = new HashMap<>();
+
+        for(Student s : students.getStudents())
+        {
+            hashMap.put(s.getLastName(), this.Averages(s.getGrades()));
+        }
+
+        avgs.setAverages(hashMap);
+
+        return avgs;
+
     }
 }
