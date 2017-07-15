@@ -2,7 +2,9 @@ package com.infoshareacademy.server.com.infoshareacademy.server;
 
 import com.infoshareacademy.service.AcademyService;
 import com.infoshareacademy.service.GradesListWrapper;
+import com.infoshareacademy.service.GradesMapWrapper;
 import com.infoshareacademy.service.Student;
+import com.infoshareacademy.service.StudentsListWrapper;
 import java.util.Arrays;
 import javax.jws.WebService;
 
@@ -38,5 +40,10 @@ public class AcademyServiceImpl implements AcademyService {
                 Arrays.asList(1, 2, 3, 3, 2)));
 
         return s;
+    }
+
+    @Override
+    public GradesMapWrapper getAverageGrades(StudentsListWrapper students) {
+        return null;
     }
 }

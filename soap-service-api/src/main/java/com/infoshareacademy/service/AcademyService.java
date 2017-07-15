@@ -16,4 +16,7 @@ public interface AcademyService {
 
     @WebMethod
     Student getStudent();
+
+    @WebMethod
+    GradesMapWrapper getAverageGrades(@WebParam(name = "students") StudentsListWrapper students);
 }
