@@ -9,4 +9,8 @@ public interface AcademyService {
 
     @WebMethod
     String toUpperCase(@WebParam(name = "value") String value);
+
+    @WebMethod
+    int greatestCommonDivider(@WebParam(name = "a") int a,
+        @WebParam(name = "b") int b);
 }

@@ -14,4 +14,13 @@ public class AcademyServiceImpl implements AcademyService {
 
         return "";
     }
+
+    @Override
+    public int greatestCommonDivider(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+
+        return greatestCommonDivider(b, a % b);
+    }
 }
