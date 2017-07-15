@@ -13,4 +13,7 @@ public interface AcademyService {
     @WebMethod
     int greatestCommonDivider(@WebParam(name = "a") int a,
         @WebParam(name = "b") int b);
+
+    @WebMethod
+    Student getStudent();
 }
